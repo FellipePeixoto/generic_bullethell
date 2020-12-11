@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/EnemyC.cs" type="Script" id=1]
+[ext_resource path="res://sprites/enemyShip3.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 47.6722, 35.7615 )
+
+[node name="EnemyC" type="Area2D"]
+position = Vector2( 213.557, 33.0656 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+Actor = 1
+Point = 6
+Dano = 5
+HP = 4
+Speed = 2.0
+firinCooldown = 2.0
+angle = 180.0
+radius = 150.0
+bulletColor = Color( 0.756863, 0.2, 0.894118, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.148649 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.001
+one_shot = true
+autostart = true
+
+[node name="TimerToStart" type="Timer" parent="."]
+process_mode = 0
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="Firer" type="Node2D" parent="."]
+position = Vector2( 0.5, 42 )
